@@ -79,7 +79,7 @@ class SinglyLinkedList {
   }
 
   set(val, index){
-    var node = this.get(index)
+    let node = this.get(index)
     if(!node) return false 
     node.val = val 
     return true 
