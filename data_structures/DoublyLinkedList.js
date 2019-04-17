@@ -129,7 +129,7 @@ class DoublyLinkedList {
   }
 }
 
-var list = new DoublyLinkedList()
+const list = new DoublyLinkedList()
 list.push('Hagrid')
 list.push('Harry')
 list.push('Hermione')

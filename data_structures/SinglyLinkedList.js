@@ -139,7 +139,7 @@ class SinglyLinkedList {
   }
 }
 
-var list = new SinglyLinkedList()
+const list = new SinglyLinkedList()
 list.push('Hello')
 list.push('world')
 list.push('we')
