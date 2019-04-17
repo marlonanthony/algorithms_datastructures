@@ -14,11 +14,11 @@ class SinglyLinkedList {
   push(val){
     let newNode = new Node(val)  
     if(!this.head){
-        this.head = newNode 
-        this.tail = this.head 
+      this.head = newNode 
+      this.tail = this.head 
     } else {
-    this.tail.next = newNode 
-    this.tail = newNode  
+      this.tail.next = newNode 
+      this.tail = newNode  
     }
     this.length += 1
     return this 
