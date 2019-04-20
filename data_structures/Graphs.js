@@ -40,6 +40,46 @@ class Graph {
     })(start) 
     return results
   }
+
+  DFTIterative(start) {
+    let currentVertex 
+    const stack = [start],
+        results = [],
+        visited = {}
+
+    visited[start] = true 
+    while(stack.length) {
+      currentVertex = stack.pop()
+      results.push(currentVertex) 
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if(!visited[neighbor]){
+          visited[neighbor] = true 
+          stack.push(neighbor) 
+        }
+      }) 
+    }
+    return results
+  }
+
+  BFT(vertex) {
+    let currentVertex 
+    const queue = [vertex],
+          result = [],
+          visited = {} 
+          
+    visited[vertex] = true 
+    while(queue.length) {
+      currentVertex = queue.shift() 
+      result.push(currentVertex) 
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if(!visited[neighbor]) {
+          visited[neighbor] = true 
+          queue.push(neighbor) 
+        }
+      })
+    }
+    return result 
+  }
 }
 
 const g = new Graph()
@@ -51,9 +91,9 @@ g.addVertex('E')
 g.addVertex('F')
 g.addEdge('A', 'B')
 g.addEdge('A', 'C')
-g.addEdge('B', 'D')
+g.addEdge('B', 'D') 
 g.addEdge('C', 'E')
 g.addEdge('D', 'E')
 g.addEdge('D', 'F')
 g.addEdge('E', 'F')
-console.log(g.DFTRecursive('A'))
+console.log(g.BFT('A'))
