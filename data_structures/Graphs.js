@@ -14,7 +14,6 @@ class Graph {
   removeEdge(vertex1, vertex2) {
     this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(val => val !== vertex2)
     this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(val => val !== vertex1) 
-    console.log([vertex1, vertex2])
   }
 
   removeVertex(vertex) {
@@ -24,17 +23,37 @@ class Graph {
     }
     delete this.adjacencyList[vertex] 
   }
+
+  DFTRecursive(start) {
+    const results = [],
+          visited = {},
+          adjacencyList = this.adjacencyList;
+    (function DFT(vertex) {
+      if(!vertex) return null 
+      visited[vertex] = true
+      results.push(vertex) 
+      adjacencyList[vertex].forEach(neighbor => {
+        if(!visited[neighbor]) {
+          return DFT(neighbor)
+        }
+      })
+    })(start) 
+    return results
+  }
 }
 
-let graph = new Graph()
-graph.addVertex('Tokyo')
-graph.addVertex('San Francisco')
-graph.addVertex('Austin') 
-graph.addVertex('Portland') 
-graph.addEdge('San Francisco', 'Austin')
-graph.addEdge('Tokyo', 'Austin')
-graph.addEdge('Tokyo', 'San Francisco')
-graph.addEdge('Portland', 'San Francisco')
-graph.removeVertex('San Francisco')
-// graph.removeEdge('San Francisco', 'Austin')
-console.log(graph) 
+const g = new Graph()
+g.addVertex('A')
+g.addVertex('B')
+g.addVertex('C') 
+g.addVertex('D') 
+g.addVertex('E')
+g.addVertex('F')
+g.addEdge('A', 'B')
+g.addEdge('A', 'C')
+g.addEdge('B', 'D')
+g.addEdge('C', 'E')
+g.addEdge('D', 'E')
+g.addEdge('D', 'F')
+g.addEdge('E', 'F')
+console.log(g.DFTRecursive('A'))
