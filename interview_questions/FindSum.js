@@ -12,13 +12,13 @@
 // }
 
 // Better T = O(n) S = O(n)
-function twoSum(arr, target) {
-  let obj = {}
-  for (var i = 0; i < arr.length; i++) {
-    obj[arr[i]] = i
+function twoSum(nums, target) {
+  const obj = {}
+  for (let i = 0; i < nums.length; i++) {
+    obj[nums[i]] = i
   }
-  for (var i = 0; i < arr.length; i++) {
-    let diff = target - arr[i]
+  for (let i = 0; i < nums.length; i++) {
+    let diff = target - nums[i]
     if (obj[diff] && obj[diff] !== i) {
       return [i, obj[diff]]
     }
