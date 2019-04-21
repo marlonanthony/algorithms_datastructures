@@ -1,3 +1,5 @@
+// Remove dups in place
+
 function removeDuplicates(nums) {
   let n = 0,
       c = 1
