@@ -4,7 +4,7 @@ function largestSquare(matrix) {
 
   for(let i = 0; i < matrix.length; i++) {
     for(let j = 0; j < matrix[i].length; j++) {
-      if(i === 0 || j === 0) { }
+      if(!i || !j) {}
       else if(matrix[i][j] > 0) {
         cache[i][j] = 1 + Math.min(cache[i][j-1], cache[i-1][j], cache[i-1][j-1])
       } 

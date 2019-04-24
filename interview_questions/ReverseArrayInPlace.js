@@ -4,7 +4,7 @@ function reverseArray(arr) {
   
   while(front < back) {
     swap(arr, front, back) 
-    console.log(front, back)
+    console.log(arr[front], arr[back])
     front++
     back--
   }
