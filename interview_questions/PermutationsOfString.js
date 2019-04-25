@@ -3,16 +3,16 @@ function permutationsOfString(string) {
         if (string.length === 0) {
             return [prefix];
         } else {
-            var out = [];
-            for (var i = 0; i < string.length; i++) {
-                var pre = string.substring(0, i);
-                var post = string.substring(i + 1);
+            let out = [];
+            for (let i = 0; i < string.length; i++) {
+                let pre = string.substring(0, i);
+                let post = string.substring(i + 1);
                 out = out.concat(recur(pre + post, string[i] + prefix));
             }
             return out;
         }
     }
-    var distinct = {};
+    const distinct = {};
     recur(string, "").forEach(function(result) {
         distinct[result] = true;
     });
