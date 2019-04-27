@@ -3,7 +3,7 @@ function permutationsOfString(string) {
   let permutations = [] 
 
   function swap(a,b) {
-    // console.log(a,b)
+    console.log(a,b)
     let temp = arr[a] 
     arr[a] = arr[b] 
     arr[b] = temp 
