@@ -1,3 +1,5 @@
+// Find all possible diceRolls for given dice count
+
 function diceRoll(dice, arr = []) {
   if(dice === 0) console.log(arr) 
   else {

@@ -1,3 +1,5 @@
+// Calculate all dice rolls that add up to desiredSum
+
 function diceSum(dice, desiredSum, sumSoFar, arr = []) {
   if(dice === 0) console.log(arr) 
   else {

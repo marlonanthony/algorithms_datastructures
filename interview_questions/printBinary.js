@@ -1,3 +1,5 @@
+// print the binary of given base10 number
+
 function printBinary(n, str = '') {
   if(n < 2) str += Math.trunc(n)
   else {
