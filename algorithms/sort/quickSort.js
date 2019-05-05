@@ -26,4 +26,4 @@ function quickSort(arr, left = 0, right = arr.length -1){
   return arr 
 }
 
-quickSort([100,-4,4,6,9,1,2,5,3])
+console.log(quickSort([100,-4,4,6,9,1,2,5,3]))
