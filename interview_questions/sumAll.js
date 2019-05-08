@@ -1,10 +1,12 @@
+// Sum all nums between given range
+
 function sumAll(arr) {
   let min = Math.min(...arr),
       max = Math.max(...arr),
       array = []
 
   for(let i = min; i <= max; i++) {
-    array.push(i) 
+    array.push(i)
   }
   return array.reduce((acc, cur) => acc + cur) 
 }
