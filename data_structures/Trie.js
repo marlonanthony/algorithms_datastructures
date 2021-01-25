@@ -10,7 +10,7 @@ class Trie {
   constructor(){
     this.root = new Node('\0')
   }
-  // 0(n) Time 0(n) Space
+
   insert(word){
     let cur = this.root
     for (let i = 0; i < word.length; i++){
@@ -21,12 +21,12 @@ class Trie {
     }
     cur.isWord = true
   }
-  // 0(n) Time 0(1) Space
+
   search(word){
     const node = this.getNode(word)
     return Boolean(node) && node.isWord
   }
-  // 0(n) Time 0(1) Space
+
   startsWith(prefix){
     return Boolean(this.getNode(prefix))
   }
