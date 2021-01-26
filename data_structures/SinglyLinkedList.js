@@ -127,6 +127,19 @@ class SinglyLinkedList {
     return this 
   }
 
+  reverseListWithoutTailOrLength(){
+    let prev = null,
+        next = null,
+        head = this.head
+    while (head){
+      next = head.next
+      head.next = prev
+      prev = head
+      head = next
+    }
+    return prev
+  }
+
   print(){
     const arr = []
     let current = this.head 

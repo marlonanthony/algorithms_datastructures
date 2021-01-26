@@ -69,14 +69,10 @@ class BinarySearchTree {
     return data 
   }
 
-  DFSPreOrder() {
-    const data = []
-    function traverse(node) {
-      data.push(node.value) 
-      node.left && traverse(node.left) 
-      node.right && traverse(node.right) 
-    }
-    traverse(this.root) 
+  DFSPreOrder(node = this.root, data = []) {
+    data.push(node.value) 
+    node.left && this.DFSPreOrder(node.left, data) 
+    node.right && this.DFSPreOrder(node.right, data) 
     return data 
   }
 
@@ -126,9 +122,9 @@ class BinarySearchTree {
 }
 
 //            10
-//          6    15
-//        3  8     20
-
+//         6     15
+//       3  8  13  20
+//            11
 const tree = new BinarySearchTree() 
 tree.insert(10)
 tree.insert(6)
@@ -136,6 +132,8 @@ tree.insert(15)
 tree.insert(20)
 tree.insert(3)
 tree.insert(8)
+tree.insert(13)
+tree.insert(11)
 console.log(tree.DFSPreOrder())
 console.log(tree.DFSPostOrder())
 console.log(tree.DFSInOrder())
