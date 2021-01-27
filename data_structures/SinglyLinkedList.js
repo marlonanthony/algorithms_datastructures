@@ -137,6 +137,7 @@ class SinglyLinkedList {
       prev = head
       head = next
     }
+    this.head = prev
     return prev
   }
 
