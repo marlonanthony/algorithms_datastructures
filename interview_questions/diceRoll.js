@@ -1,14 +1,15 @@
 // Find all possible diceRolls for given dice count
-
-function diceRoll(dice, arr = []) {
-  if(dice === 0) console.log(arr) 
-  else {
-    for(let i = 1; i <= 6; i++) {
-      arr.push(i) 
-      diceRoll(dice - 1, arr) 
-      arr.pop() 
-    }
+function diceRoll(dice, arr=[], array=[]) {
+  if(dice === 0) {
+    array.push([...arr]) 
+    return 
   }
+  for(let i = 1; i <= 6; i++) {
+    arr.push(i) 
+    diceRoll(dice - 1, arr, array) 
+    arr.pop() 
+  }
+  return array
 }
 
-diceRoll(3)
+console.log(diceRoll(3))

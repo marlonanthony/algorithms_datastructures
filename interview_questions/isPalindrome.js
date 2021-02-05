@@ -1,13 +1,7 @@
-function isPalindrome(str) {
-  if(str.length < 2) return true 
-  else {
-    console.log(str)
-    str = str.split('')
-    const first = str.shift(),
-          last = str.pop()
-    str = str.join('') 
-    return first === last ? isPalindrome(str) : false
-  }
+function isPalindrome(str, i1=0, i2=str.length - 1){
+  if (str.length < 2) return true
+  if (i1 >= i2) return true
+  return str[i1] !== str[i2] ? false : isPalindrome(str, i1 + 1, i2 - 1)
 }
 
-console.log(isPalindrome('racecar'))
+console.log(isPalindrome('amanaplanacanalpanama'))

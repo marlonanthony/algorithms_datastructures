@@ -97,6 +97,7 @@ class BinarySearchTree {
     traverse(this.root) 
     return data 
   }
+
   maxDepth(root){
     let answer = 0
     function recurse(r, depth){
@@ -108,6 +109,7 @@ class BinarySearchTree {
     recurse(root, 1)
     return answer
   }
+
   treePaths(root, path='', arrOfPaths=[]){
     if (!root) return arrOfPaths
     path += root.value
@@ -119,12 +121,36 @@ class BinarySearchTree {
     if (root.right) this.treePaths(root.right, path + '->', arrOfPaths)
     return arrOfPaths
   }
+  
+  printBorder(root, data=[]){
+    if (!root) return
+    data.push(root.value)
+    if (root.left) printLeft(root.left)
+    if (root.right) printRight(root.right)
+
+    function printLeft(node){
+      data.push(node.value)
+      if (node.left) printLeft(node.left)
+      if (node.right) printCenter(node.right)
+    }
+    function printRight(node){
+      if (node.left) printCenter(node.left)
+      if (node.right) printRight(node.right)
+      data.push(node.value)
+    }
+    function printCenter(node){
+      if (!node.left && !node.right) data.push(node.value)
+      if (node.left) printCenter(node.left)
+      if (node.right) printCenter(node.right)
+    }
+    return data
+  }
 }
 
-//            10
-//         6     15
-//       3  8  13  20
-//            11
+//              10
+//         6        15
+//       3  8     13  20
+//              11
 const tree = new BinarySearchTree() 
 tree.insert(10)
 tree.insert(6)
@@ -139,3 +165,4 @@ console.log(tree.DFSPostOrder())
 console.log(tree.DFSInOrder())
 console.log(tree.maxDepth(tree.root))
 console.log(tree.treePaths(tree.root))
+console.log(tree.printBorder(tree.root))
